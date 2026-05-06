@@ -4,13 +4,13 @@ const projects = [
     title: 'MsRoot.id',
     description: 'A service platform that provides custom website development to meet clients business needs.',
     tech: ['Vite', 'TypeScript', 'Tailwind'],
-    link: 'https://msroot.id'
+    link: 'https://msroot.my.id'
   },
   {
     title: 'HR Management',
     description: 'A comprehensive human resource management system featuring integrated face recognition for secure attendance, streamlined employee tracking, and robust performance management.',
     tech: ['Laravel', 'Tailwind', 'Docker', 'Innertia.js', 'vue.js', 'Face recognition', 'Python', 'MySQL'],
-    link: 'https://hrm.msroot.id'
+    link: 'https://hrm.msroot.my.id'
   },
 ]
 
