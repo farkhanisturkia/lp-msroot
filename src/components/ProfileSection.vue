@@ -57,7 +57,7 @@ import farkhanImage from '../assets/farkhan.jpeg';
                     <path fill="currentColor" stroke="currentColor" stroke-width="40" stroke-linecap="round" stroke-linejoin="round" d="m 220,180 l40,50 l-40,40 c 0,0 50,80 140,140 l40,-30 l50,40 c 0,0 -40,40 -100,20 c 0,0 -140,-80 -160,-160 c 0,0 -10,-40 10,-80 c 0,0 10,-20 20,-20 z"/>
                   </svg>
                 </a>
-                <a href="https://msroot.id" target="_blank" class="p-2 bg-gray-700 hover:bg-orange-500 text-white rounded-full transition-colors duration-300 relative z-10">
+                <a href="https://msroot.my.id" target="_blank" class="p-2 bg-gray-700 hover:bg-orange-500 text-white rounded-full transition-colors duration-300 relative z-10">
                   <span class="sr-only">Website</span>
                   <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path></svg>
                 </a>
