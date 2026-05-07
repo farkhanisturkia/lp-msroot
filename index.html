@@ -2,12 +2,40 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="./src/assets/logo-white.png" />
+    <link id="favicon" rel="icon" type="image/svg+xml" href="./src/assets/logo-white.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MsRoot | Building smart solutions for your needs.</title>
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://msroot.my.id/" />
+    <meta property="og:title" content="MsRoot | Building smart solutions for your needs." />
+    <meta property="og:description" content="We deliver innovative websites, custom software, and reliable IT solutions." />
+    <meta property="og:image" content="https://msroot.my.id/thumbnail-msroot.png" />
+
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:image" content="https://msroot.my.id/thumbnail-msroot.png" />
   </head>
   <body>
     <div id="app"></div>
     <script type="module" src="/src/main.ts"></script>
+    <script>
+      const favicon = document.getElementById('favicon');
+    
+      function updateFavicon() {
+        const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches;
+        
+        if (isLightMode) {
+          favicon.href = './src/assets/logo-black.png';
+        } else {
+          favicon.href = './src/assets/logo-white.png';
+        }
+      }
+      
+      updateFavicon();
+      
+      window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', updateFavicon);
+    </script>
   </body>
 </html>
+
+
