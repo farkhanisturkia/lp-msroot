@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import logoWhite from '../assets/logo-white.png';
-
 const scrollToProducts = () => {
   const productSection = document.getElementById('product-section');
   if (productSection) {
@@ -29,7 +27,7 @@ const scrollToHero = () => {
     <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl"></div>
     <div class="container mx-auto px-4 relative z-10">
       <div class="text-center mb-16">
-        <img :src="logoWhite" alt="logo" class="w-12 h-12 mx-auto">
+        <img src="/logo-white.png" alt="logo" class="w-12 h-12 mx-auto">
         <span class="text-orange-500 font-semibold uppercase tracking-widest text-sm">Tech Stack</span>
         <h2 class="text-4xl md:text-5xl font-bold text-white mt-3">Product & Skill</h2>
         <p class="text-gray-400 mt-4 max-w-2xl mx-auto">
@@ -95,7 +93,7 @@ const scrollToHero = () => {
       
       <div class="flex flex-col md:flex-row justify-between items-center gap-8 pt-4">
         <div class="flex items-center space-x-3">
-          <img :src="logoWhite" alt="MsRoot Logo" class="w-8 h-8 object-contain" />
+          <img src="/logo-white.png" alt="MsRoot Logo" class="w-8 h-8 object-contain" />
           <span class="text-xl font-bold tracking-wider text-white">MsRoot<span class="text-orange-500">.ID</span></span>
         </div>
         
