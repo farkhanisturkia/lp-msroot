@@ -12,6 +12,12 @@ const projects = [
     tech: ['Laravel', 'Tailwind', 'Docker sail', 'Innertia.js', 'vue.js', 'Face recognition', 'Python', 'MySQL'],
     link: 'https://hrm.msroot.my.id'
   },
+  {
+    title: 'MS News',
+    description: 'A modern, minimalist news aggregator and portal platform built for high-performance content delivery.',
+    tech: ['Laravel', 'Tailwind', 'Docker sail', 'blade template', 'MySQL'],
+    link: 'https://news.msroot.my.id'
+  },
 ]
 
 import { useRouter } from 'vue-router'
