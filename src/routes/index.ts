@@ -7,6 +7,11 @@ const routes: RouteRecordRaw[] = [
         component: () => import('../views/Home.vue')
     },
     {
+        path: '/golang',
+        name: 'golang',
+        component: () => import('../views/GolangView.vue')
+    },
+    {
         path: '/js-ts',
         name: 'jsTs',
         component: () => import('../views/JsTsView.vue')

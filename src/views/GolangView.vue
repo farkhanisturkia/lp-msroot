@@ -1,16 +1,10 @@
 <script setup lang="ts">
 const projects = [
   {
-    title: 'Sirusir',
-    description: 'Geographic Information Systems and the Vehicle Routing Problem for route efficiency and logistics.',
-    tech: ['Laravel', 'VRP-ML', 'Leaflet.js', 'Tailwind', 'MySQL'],
-    link: 'https://sirusir.msroot.my.id'
-  },
-  {
-    title: 'HR Management',
-    description: 'A comprehensive human resource management system featuring integrated face recognition for secure attendance, streamlined employee tracking, and robust performance management.',
-    tech: ['Laravel', 'Tailwind', 'Docker sail', 'Innertia.js', 'vue.js', 'Face recognition', 'Python', 'MySQL'],
-    link: 'https://hrm.msroot.my.id'
+    title: 'MS News',
+    description: 'A modern, minimalist news aggregator and portal platform built for high-performance content delivery.',
+    tech: ['Vite', 'Tailwind', 'Docker', 'Nginx', 'Golang', 'Gin', 'MySQL'],
+    link: 'https://news.msroot.my.id'
   },
 ]
 
@@ -43,9 +37,9 @@ const backToProduct = async () => {
         back
       </button>
       <div class="mb-10 text-center md:text-left">
-        <h1 class="text-3xl md:text-5xl font-bold text-white mb-3">PHP Laravel Projects</h1>
+        <h1 class="text-3xl md:text-5xl font-bold text-white mb-3">Golang Projects</h1>
         <p class="text-gray-400 text-sm md:text-base max-w-2xl">
-          Here is a list of applications and web systems built using the PHP Laravel ecosystem.
+          Here is a list of applications and web systems built using the Golang ecosystem.
         </p>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
@@ -74,7 +68,7 @@ const backToProduct = async () => {
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
                 </svg>
               </a>
-            </div> 
+            </div>
           </div>
         </div>
       </div>
