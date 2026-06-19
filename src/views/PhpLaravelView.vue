@@ -2,13 +2,13 @@
 const projects = [
   {
     title: 'Sirusir',
-    description: 'Geographic Information Systems and the Vehicle Routing Problem for route efficiency and logistics.',
+    description: 'Under MsRoot.ID, Sirusir is Geographic Information Systems and the Vehicle Routing Problem for route efficiency and logistics.',
     tech: ['Laravel', 'VRP-ML', 'Leaflet.js', 'Tailwind', 'MySQL'],
     link: 'https://sirusir.msroot.my.id'
   },
   {
     title: 'HR Management',
-    description: 'A comprehensive human resource management system featuring integrated face recognition for secure attendance, streamlined employee tracking, and robust performance management.',
+    description: 'Under MsRoot.ID, HR Management is A comprehensive human resource management system featuring integrated face recognition for secure attendance, streamlined employee tracking, and robust performance management.',
     tech: ['Laravel', 'Tailwind', 'Docker sail', 'Innertia.js', 'vue.js', 'Face recognition', 'Python', 'MySQL'],
     link: 'https://hrm.msroot.my.id'
   },

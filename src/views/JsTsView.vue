@@ -1,20 +1,20 @@
 <script setup lang="ts">
 const projects = [
   {
-    title: 'MsRoot.id',
-    description: 'A service platform that provides custom website development to meet clients business needs.',
+    title: 'MsRoot.ID',
+    description: 'Under MsRoot.ID, MsRoot.ID is A service platform that provides custom website development to meet clients business needs.',
     tech: ['Vite', 'TypeScript', 'Tailwind'],
     link: 'https://msroot.my.id'
   },
   {
     title: 'HR Management',
-    description: 'A comprehensive human resource management system featuring integrated face recognition for secure attendance, streamlined employee tracking, and robust performance management.',
+    description: 'Under MsRoot.ID, HR Management is A comprehensive human resource management system featuring integrated face recognition for secure attendance, streamlined employee tracking, and robust performance management.',
     tech: ['Laravel', 'Tailwind', 'Docker', 'Innertia.js', 'vue.js', 'Face recognition', 'Python', 'MySQL'],
     link: 'https://hrm.msroot.my.id'
   },
   {
     title: 'MS News',
-    description: 'A modern, minimalist news aggregator and portal platform built for high-performance content delivery.',
+    description: 'Under MsRoot.ID, MS News is A modern, minimalist news aggregator and portal platform built for high-performance content delivery.',
     tech: ['Vite', 'Tailwind', 'Docker', 'Nginx', 'Golang', 'Gin', 'MySQL'],
     link: 'https://news.msroot.my.id'
   },

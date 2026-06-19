@@ -2,7 +2,7 @@
 const projects = [
   {
     title: 'MS News',
-    description: 'A modern, minimalist news aggregator and portal platform built for high-performance content delivery.',
+    description: 'Under MsRoot.ID, Ms News is A modern, minimalist news aggregator and portal platform built for high-performance content delivery.',
     tech: ['Vite', 'Tailwind', 'Docker', 'Nginx', 'Golang', 'Gin', 'MySQL'],
     link: 'https://news.msroot.my.id'
   },
