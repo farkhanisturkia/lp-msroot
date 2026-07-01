@@ -12,6 +12,8 @@ import farkhanImage from '../assets/farkhan.jpeg';
           <p class="text-gray-600 text-lg mb-6 leading-relaxed">
             Hello! My name is Farkhan. As a software developer, I have a strong interest in web application development using modern technologies such as Go, TypeScript/JavaScript, and Laravel. 
           </p>
+          
+          <!-- Grid Job & Focus -->
           <div class="grid grid-cols-2 gap-6 mt-8">
             <div>
               <h3 class="text-xl font-semibold text-orange-500">Job</h3>
@@ -22,8 +24,24 @@ import farkhanImage from '../assets/farkhan.jpeg';
               <p class="text-gray-700 mt-2">Backend Web Developer</p>
             </div>
           </div>
+
+          <!-- Tombol Download CV -->
+          <div class="mt-8">
+            <a 
+              href="/cv-farkhan.pdf" 
+              download="CV_Abdurrohman_Farkhan.pdf"
+              class="inline-flex items-center gap-2 bg-orange-500 hover:bg-orange-600 text-white font-medium px-6 py-3 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-0.5"
+            >
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+              </svg>
+              Download CV
+            </a>
+          </div>
+
         </div>
         <div class="w-full md:w-5/12 flex justify-center relative z-10">
+          <!-- Sisa kode kanan (Foto & Sosmed) tetap sama... -->
           <div class="relative group max-w-sm w-full">
             <div class="absolute -inset-1 bg-linear-to-r from-orange-600 to-blue-600 rounded-2xl blur opacity-25 group-hover:opacity-100 transition duration-1000 group-hover:duration-200"></div>
             <div class="relative bg-gray-800 border border-gray-700 p-8 rounded-2xl shadow-2xl flex flex-col items-center text-center">
