@@ -6,6 +6,12 @@ const projects = [
     tech: ['Vite', 'Tailwind', 'Docker', 'Nginx', 'Golang', 'Gin', 'MySQL'],
     link: 'https://news.msroot.my.id'
   },
+  {
+    title: 'MS Chat',
+    description: 'A responsive, real-time chat application featuring persistent room-based management and instant synchronization across devices.',
+    tech: ['HTML5', 'CSS3', 'Golang', 'Gin', 'Gorilla WebSocket', 'SQLite'],
+    link: 'https://chat.msroot.my.id'
+  },
 ]
 
 import { useRouter } from 'vue-router'
