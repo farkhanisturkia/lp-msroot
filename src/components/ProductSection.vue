@@ -38,15 +38,13 @@ const products = [
     class="min-h-screen w-full md:snap-start flex flex-col justify-between bg-stone-50 text-stone-800 py-12"
   >
     <div class="container mx-auto px-6 lg:px-12 my-auto max-w-7xl">
-      
-      <!-- Section Title -->
+
       <div class="mb-14 text-center max-w-3xl mx-auto space-y-3">
         <span class="text-xs uppercase tracking-widest text-amber-800 font-bold">Services & Products</span>
         <h2 class="text-4xl sm:text-5xl font-serif font-bold text-stone-900">Specialized Engineering Solutions</h2>
         <p class="text-stone-600 text-lg">High-quality development services tailored for modern business requirements.</p>
       </div>
 
-      <!-- Card Grid -->
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10 mb-12">
         <div 
           v-for="item in products" 
@@ -95,7 +93,6 @@ const products = [
               </span>
             </div>
 
-            <!-- Action Button Link -->
             <router-link 
               :to="item.link" 
               class="w-full inline-flex items-center justify-center gap-2 bg-stone-50 hover:bg-amber-900 text-stone-700 hover:text-white border border-stone-200/80 hover:border-amber-900 py-3 px-5 rounded-xl font-medium text-sm transition duration-300 shadow-2xs"
@@ -108,7 +105,6 @@ const products = [
 
     </div>
 
-    <!-- Footer Area -->
     <div class="container mx-auto px-6 lg:px-12 max-w-7xl">
       <hr class="border-stone-200/80 mb-8">
       

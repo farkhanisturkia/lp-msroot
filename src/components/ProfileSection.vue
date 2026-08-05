@@ -107,7 +107,7 @@ const scrollToSection = (id: string) => {
       </div>
     </div>
 
-    <div class="text-center relative z-10 animate-bounce cursor-pointer opacity-70 hover:opacity-100" @click="scrollToSection('product-section')">
+    <div class="hidden md:block text-center relative z-10 animate-bounce cursor-pointer opacity-70 hover:opacity-100" @click="scrollToSection('product-section')">
       <svg class="w-5 h-5 mx-auto text-amber-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
       </svg>
