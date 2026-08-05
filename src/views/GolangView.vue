@@ -63,7 +63,7 @@ const backToProduct = async () => {
           <div>
             <div class="flex items-center justify-between mb-6">
               <span class="px-3.5 py-1 bg-amber-50 text-amber-900 border border-amber-200/60 rounded-full text-xs font-bold tracking-wide">
-                Golang / Microservices
+                Golang
               </span>
               
               <a 
