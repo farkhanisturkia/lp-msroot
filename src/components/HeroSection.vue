@@ -1,81 +1,96 @@
 <script setup lang="ts">
 import heroImage from '../assets/heroSection.jpeg';
 
-const scrollToProducts = () => {
-  const productSection = document.getElementById('product-section');
-  if (productSection) {
-    productSection.scrollIntoView({ behavior: 'smooth' });
-  }
+const scrollToSection = (id: string) => {
+  document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
 };
 
-const scrollToProfile = () => {
-  const profileSection = document.getElementById('profile-section');
-  if (profileSection) {
-    profileSection.scrollIntoView({ behavior: 'smooth' });
-  }
-};
+const features = [
+  { title: 'Fast Performance', desc: 'Optimized speed, clean code, and lightweight architecture.' },
+  { title: 'Enterprise Security', desc: 'Built-in security standards, data encryption, and safe protocols.' },
+  { title: 'AI-powered Integration', desc: 'Smart automation and API integrations for modern workflows.' }
+];
+
+const stats = [
+  { value: '99.9%', label: 'Uptime Reliability' },
+  { value: 'Modern', label: 'Tech Stack' },
+  { value: 'Custom', label: 'Tailored Solutions' }
+];
 </script>
 
 <template>
-  <section id="hero-section"  class="relative text-white overflow-hidden">
+  <section 
+    id="hero-section" 
+    class="min-h-screen w-full snap-start flex flex-col justify-between bg-stone-50 text-stone-800 relative overflow-hidden py-12"
+  >
     <div 
-      class="absolute inset-0 bg-cover bg-center" 
+      class="absolute inset-0 bg-cover bg-center opacity-5 filter grayscale contrast-125 pointer-events-none" 
       :style="{ backgroundImage: `url(${heroImage})` }"
     ></div>
-    <div class="absolute inset-0 bg-zinc-950/60 mix-blend-multiply"></div>
-    <div class="container mx-auto px-4 py-24 md:py-32 relative z-10">
-      <div class="flex flex-col md:flex-row items-center justify-between">
-        <div class="w-full md:w-1/2 mb-12 md:mb-0">
-          <h1 class="mb-6 leading-tight">
-            <span class="text-5xl md:text-6xl font-bold text-orange-600">MsRoot.ID</span><br>
-            <span class="text-3xl md:text-5xl font-bold">Innovate.<br>Automate.<br>Elevate.</span>
+
+    <div class="container mx-auto px-6 lg:px-12 my-auto relative z-10 max-w-7xl">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+
+        <div class="lg:col-span-7 space-y-8">
+          <div class="inline-block px-4 py-1.5 bg-amber-100/80 border border-amber-200 rounded-full text-amber-900 text-sm font-semibold tracking-wide">
+            SOFTWARE DEVELOPMENT & IT SOLUTIONS
+          </div>
+          
+          <h1 class="text-5xl sm:text-6xl lg:text-7xl font-serif font-bold tracking-tight text-stone-900 leading-none">
+            MsRoot<span class="text-amber-800">.ID</span><br>
+            <span class="italic font-normal text-stone-600 text-4xl sm:text-5xl lg:text-6xl mt-2 block">Innovate. Automate. Elevate.</span>
           </h1>
-          <p class="text-xl mb-8 text-gray-300">We deliver innovative websites, custom software, and reliable IT solutions.</p>
-          <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+          
+          <p class="text-xl sm:text-2xl text-stone-600 max-w-2xl leading-relaxed">
+            We deliver thoughtful websites, custom software, and reliable IT solutions crafted with precision and modern engineering.
+          </p>
+
+          <div class="flex flex-col sm:flex-row gap-4 pt-2">
             <button 
-              @click="scrollToProfile"
-              class="bg-white/30 hover:bg-black/70 text-blue-300 hover:text-white font-semibold px-8 py-3 rounded-full transition duration-300 text-center"
+              @click="scrollToSection('product-section')"
+              class="bg-amber-900 hover:bg-amber-800 text-stone-50 font-medium px-9 py-4 rounded-xl transition duration-300 shadow-md hover:shadow-lg text-center cursor-pointer text-base"
             >
-              Contact us
+              Explore products
             </button>
             <button 
-              @click="scrollToProducts"
-              class="border-2 border-blue-300/50 text-blue-300 font-semibold px-8 py-3 rounded-full hover:bg-white hover:text-blue-900 transition duration-300 text-center cursor-pointer"
+              @click="scrollToSection('profile-section')"
+              class="border border-stone-300 hover:border-amber-900 bg-white/50 text-stone-700 hover:text-amber-900 font-medium px-9 py-4 rounded-xl transition duration-300 text-center cursor-pointer text-base"
             >
-              Our products
+              About & Contact
             </button>
           </div>
-        </div>
-        <div class="w-full md:w-1/2 md:pl-12">
-          <div class="bg-black/10 text-white bg-opacity-10 backdrop-filter backdrop-blur-lg rounded-xl p-8 shadow-2xl">
-            <h2 class="text-2xl font-semibold mb-6">Why MsRoot?</h2>
-            <ul class="space-y-4">
-              <li class="flex items-center">
-                <svg class="w-6 h-6 mr-3 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-                </svg>
-                <span>Fast Performance</span>
-              </li>
-              <li class="flex items-center">
-                <svg class="w-6 h-6 mr-3 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
-                </svg>
-                <span>Secure Security</span>
-              </li>
-              <li class="flex items-center">
-                <svg class="w-6 h-6 mr-3 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"></path>
-                </svg>
-                <span>AI-powered</span>
-              </li>
-            </ul>
+
+          <div class="grid grid-cols-3 gap-6 pt-8 border-t border-stone-200/80 max-w-xl">
+            <div v-for="s in stats" :key="s.label">
+              <p class="text-2xl lg:text-3xl font-serif font-bold text-stone-900">{{ s.value }}</p>
+              <p class="text-xs text-stone-500 font-medium uppercase tracking-wider mt-1">{{ s.label }}</p>
+            </div>
           </div>
         </div>
+
+        <div class="lg:col-span-5">
+          <div class="bg-white/90 backdrop-blur-md border border-stone-200/90 rounded-3xl p-8 lg:p-10 shadow-sm">
+            <h2 class="text-xs font-bold uppercase tracking-widest text-amber-800 mb-8">Why Choose MsRoot?</h2>
+            
+            <div class="space-y-8">
+              <div v-for="(item, idx) in features" :key="idx" class="flex gap-5 items-start">
+                <div class="w-3 h-3 rounded-full bg-amber-800 mt-2 shrink-0 shadow-xs"></div>
+                <div>
+                  <h3 class="font-serif font-semibold text-stone-900 text-xl">{{ item.title }}</h3>
+                  <p class="text-stone-600 mt-1.5 leading-relaxed text-sm lg:text-base">{{ item.desc }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
-    <div class="absolute bottom-0 left-0 right-0">
-      <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M0 120L60 105C120 90 240 60 360 45C480 30 600 30 720 37.5C840 45 960 60 1080 67.5C1200 75 1320 75 1380 75L1440 75V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z" fill="white"/>
+
+    <div class="text-center relative z-10 animate-bounce cursor-pointer opacity-70 hover:opacity-100" @click="scrollToSection('profile-section')">
+      <span class="text-xs uppercase tracking-widest text-stone-400 font-medium block mb-1">Scroll Down</span>
+      <svg class="w-5 h-5 mx-auto text-amber-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
       </svg>
     </div>
   </section>
