@@ -5,7 +5,7 @@ import ProductSection from '../components/ProductSection.vue';
 </script>
 
 <template>
-  <main class="h-screen overflow-y-scroll snap-y snap-mandatory scroll-smooth">
+  <main class="h-screen overflow-y-scroll md:snap-y md:snap-mandatory scroll-smooth">
     <HeroSection />
     <ProfileSection />
     <ProductSection />

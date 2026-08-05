@@ -18,7 +18,7 @@ const scrollToSection = (id: string) => {
 <template>
   <section 
     id="profile-section" 
-    class="min-h-screen w-full snap-start flex flex-col justify-between bg-stone-100/70 text-stone-800 border-y border-stone-200/80 relative overflow-hidden py-12"
+    class="min-h-screen w-full md:snap-start flex flex-col justify-between bg-stone-100/70 text-stone-800 border-y border-stone-200/80 relative overflow-hidden py-12"
   >
     <div class="container mx-auto px-6 lg:px-12 my-auto max-w-7xl">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">

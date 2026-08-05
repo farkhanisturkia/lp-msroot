@@ -35,7 +35,7 @@ const products = [
 <template>
   <section 
     id="product-section" 
-    class="min-h-screen w-full snap-start flex flex-col justify-between bg-stone-50 text-stone-800 py-12"
+    class="min-h-screen w-full md:snap-start flex flex-col justify-between bg-stone-50 text-stone-800 py-12"
   >
     <div class="container mx-auto px-6 lg:px-12 my-auto max-w-7xl">
       
