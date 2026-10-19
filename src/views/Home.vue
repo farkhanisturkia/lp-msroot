@@ -2,12 +2,12 @@
 import HeroSection from '../components/HeroSection.vue'
 import ProfileSection from '../components/ProfileSection.vue';
 import ProductSection from '../components/ProductSection.vue';
+import CubeScene from '../components/CubeScene.vue';
 </script>
 
 <template>
-  <main class="h-screen overflow-y-scroll md:snap-y md:snap-mandatory scroll-smooth">
-    <HeroSection />
-    <ProfileSection />
-    <ProductSection />
-  </main>
+  <CubeScene />
+  <HeroSection />
+  <ProfileSection />
+  <ProductSection />
 </template>

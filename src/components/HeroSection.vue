@@ -1,97 +1,90 @@
 <script setup lang="ts">
-import heroImage from '../assets/heroSection.jpeg';
+const scrollToProducts = () => {
+  const productSection = document.getElementById('product-section');
+  if (productSection) {
+    productSection.scrollIntoView({ behavior: 'smooth' });
+  }
+};
 
-const scrollToSection = (id: string) => {
-  document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+const scrollToProfile = () => {
+  const profileSection = document.getElementById('profile-section');
+  if (profileSection) {
+    profileSection.scrollIntoView({ behavior: 'smooth' });
+  }
 };
 
 const features = [
-  { title: 'Fast Performance', desc: 'Optimized speed, clean code, and lightweight architecture.' },
-  { title: 'Enterprise Security', desc: 'Built-in security standards, data encryption, and safe protocols.' },
-  { title: 'AI-powered Integration', desc: 'Smart automation and API integrations for modern workflows.' }
-];
-
-const stats = [
-  { value: '99.9%', label: 'Uptime Reliability' },
-  { value: 'Modern', label: 'Tech Stack' },
-  { value: 'Custom', label: 'Tailored Solutions' }
+  {
+    title: 'Fast Performance',
+    icon: 'M13 10V3L4 14h7v7l9-11h-7z',
+  },
+  {
+    title: 'Secure Security',
+    icon: 'M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z',
+  },
+  {
+    title: 'AI-powered',
+    icon: 'M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.847a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456z',
+  },
 ];
 </script>
 
 <template>
-  <section 
-    id="hero-section" 
-    class="min-h-screen w-full snap-start flex flex-col justify-between bg-stone-50 text-stone-800 relative overflow-hidden py-12"
-  >
-    <div 
-      class="absolute inset-0 bg-cover bg-center opacity-5 filter grayscale contrast-125 pointer-events-none" 
-      :style="{ backgroundImage: `url(${heroImage})` }"
-    ></div>
+  <section id="hero-section" class="relative z-10 min-h-[150vh] md:min-h-[190vh] scroll-mt-20 overflow-hidden">
+    <!-- aksen gradasi tosca halus -->
+    <div class="pointer-events-none absolute -right-40 -top-40 h-128 w-lg rounded-full bg-tosca-100/60 blur-3xl"></div>
+    <div class="pointer-events-none absolute -left-32 bottom-0 h-80 w-80 rounded-full bg-tosca-50 blur-3xl"></div>
 
-    <div class="container mx-auto px-6 lg:px-12 my-auto relative z-10 max-w-7xl">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+    <div class="container relative mx-auto px-4">
+      <div class="flex flex-col h-svh items-center md:flex-row md:justify-between">
+        <div class="w-full pt-12 pb-24 md:w-1/2 md:pt-28 md:pb-32">
+          <span
+            class="inline-flex items-center gap-2 rounded-full border border-tosca-200 bg-tosca-50 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-tosca-700"
+          >
+            <span class="h-1.5 w-1.5 rounded-full bg-tosca-500"></span>
+            MsRoot.ID
+          </span>
 
-        <div class="lg:col-span-7 space-y-8">
-          <div class="inline-block px-4 py-1.5 bg-amber-100/80 border border-amber-200 rounded-full text-amber-900 text-sm font-semibold tracking-wide">
-            SOFTWARE DEVELOPMENT & IT SOLUTIONS
-          </div>
-          
-          <h1 class="text-5xl sm:text-6xl lg:text-7xl font-serif font-bold tracking-tight text-stone-900 leading-none">
-            MsRoot<span class="text-amber-800">.ID</span><br>
-            <span class="italic font-normal text-stone-600 text-4xl sm:text-5xl lg:text-6xl mt-2 block">Innovate. Automate. Elevate.</span>
+          <h1 class="mt-6 leading-[1.05] tracking-tight text-slate-900">
+            <span class="block text-4xl font-extrabold sm:text-5xl lg:text-6xl">
+              Innovate.<br />
+              Automate.<br />
+              Elevate.
+            </span>
           </h1>
-          
-          <p class="text-xl sm:text-2xl text-stone-600 max-w-2xl leading-relaxed">
-            We deliver thoughtful websites, custom software, and reliable IT solutions crafted with precision and modern engineering.
+
+          <p class="mt-6 max-w-lg text-lg leading-relaxed text-slate-500">
+            We deliver innovative websites, custom software, and reliable IT solutions.
           </p>
 
-          <div class="flex flex-col sm:flex-row gap-4 pt-2">
-            <button 
-              @click="scrollToSection('product-section')"
-              class="bg-amber-900 hover:bg-amber-800 text-stone-50 font-medium px-9 py-4 rounded-xl transition duration-300 shadow-md hover:shadow-lg text-center cursor-pointer text-base"
+          <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:gap-4">
+            <button
+              @click="scrollToProfile"
+              class="rounded-full bg-tosca-500 px-8 py-3.5 text-center font-semibold text-white shadow-lg shadow-tosca-500/25 transition duration-300 hover:bg-tosca-600"
             >
-              Explore products
+              Contact us
             </button>
-            <button 
-              @click="scrollToSection('profile-section')"
-              class="border border-stone-300 hover:border-amber-900 bg-white/50 text-stone-700 hover:text-amber-900 font-medium px-9 py-4 rounded-xl transition duration-300 text-center cursor-pointer text-base"
+            <button
+              @click="scrollToProducts"
+              class="rounded-full border-2 border-tosca-200 px-8 py-3.5 text-center font-semibold text-tosca-700 transition duration-300 hover:border-tosca-500 hover:bg-tosca-50"
             >
-              About & Contact
+              Our products
             </button>
           </div>
 
-          <div class="grid grid-cols-3 gap-6 pt-8 border-t border-stone-200/80 max-w-xl">
-            <div v-for="s in stats" :key="s.label">
-              <p class="text-2xl lg:text-3xl font-serif font-bold text-stone-900">{{ s.value }}</p>
-              <p class="text-xs text-stone-500 font-medium uppercase tracking-wider mt-1">{{ s.label }}</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="lg:col-span-5">
-          <div class="bg-white/90 backdrop-blur-md border border-stone-200/90 rounded-3xl p-8 lg:p-10 shadow-sm">
-            <h2 class="text-xs font-bold uppercase tracking-widest text-amber-800 mb-8">Why Choose MsRoot?</h2>
-            
-            <div class="space-y-8">
-              <div v-for="(item, idx) in features" :key="idx" class="flex gap-5 items-start">
-                <div class="w-3 h-3 rounded-full bg-amber-800 mt-2 shrink-0 shadow-xs"></div>
-                <div>
-                  <h3 class="font-serif font-semibold text-stone-900 text-xl">{{ item.title }}</h3>
-                  <p class="text-stone-600 mt-1.5 leading-relaxed text-sm lg:text-base">{{ item.desc }}</p>
-                </div>
-              </div>
-            </div>
-          </div>
+          <ul class="mt-10 flex flex-wrap gap-x-8 gap-y-4">
+            <li v-for="feature in features" :key="feature.title" class="flex items-center gap-2.5">
+              <span class="flex h-9 w-9 items-center justify-center rounded-lg bg-tosca-50 ring-1 ring-tosca-100">
+                <svg class="h-5 w-5 text-tosca-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" :d="feature.icon"></path>
+                </svg>
+              </span>
+              <span class="text-sm font-semibold text-slate-600">{{ feature.title }}</span>
+            </li>
+          </ul>
         </div>
 
       </div>
-    </div>
-
-    <div class="hidden md:block text-center relative z-10 animate-bounce cursor-pointer opacity-70 hover:opacity-100" @click="scrollToSection('profile-section')">
-      <span class="text-xs uppercase tracking-widest text-stone-400 font-medium block mb-1">Scroll Down</span>
-      <svg class="w-5 h-5 mx-auto text-amber-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-      </svg>
     </div>
   </section>
 </template>

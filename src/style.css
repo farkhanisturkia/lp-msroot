@@ -1,1 +1,35 @@
 @import "tailwindcss";
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  /* Palet Tosca */
+  --color-tosca-50: #effcf9;
+  --color-tosca-100: #c9f6ee;
+  --color-tosca-200: #93ecdf;
+  --color-tosca-300: #57ddd0;
+  --color-tosca-400: #26c7ba;
+  --color-tosca-500: #14b8a6;
+  --color-tosca-600: #0d9488;
+  --color-tosca-700: #0f766e;
+  --color-tosca-800: #115e59;
+  --color-tosca-900: #134e4a;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: #ffffff;
+  color: #0f172a;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+::selection {
+  background-color: #14b8a6;
+  color: #ffffff;
+}
