@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import { onBeforeUnmount, onMounted, ref } from 'vue';
+import { onBeforeUnmount, onMounted, ref, watch } from 'vue';
 import * as THREE from 'three';
+import { useTheme } from '../composables/useTheme';
 
 /*
  * Scene 3D logo MsRoot (6 cube) yang merapat menjadi logo saat di-scroll.
@@ -37,6 +38,7 @@ const ISO_QUAT = new THREE.Quaternion().setFromEuler(
 );
 
 const TOSCA = '#14b8a6';
+const NEON = '#ff3448'; // merah neon saat dark mode (glow in the dark)
 const EDGE_COLOR = '#ffffff';
 
 // pseudo random deterministik [0,1)
@@ -82,6 +84,9 @@ type Shard = {
 
 let renderer: THREE.WebGLRenderer;
 let scene: THREE.Scene;
+let fillLight: THREE.DirectionalLight;
+const { resolved } = useTheme();
+let stopThemeWatch = () => {};
 let camera: THREE.PerspectiveCamera;
 let group: THREE.Group;
 let boxGeo: THREE.BoxGeometry;
@@ -212,9 +217,9 @@ function buildScene() {
   const key = new THREE.DirectionalLight(0xffffff, 2.0);
   key.position.set(1.2, 3.0, 4.2);
   scene.add(key);
-  const fill = new THREE.DirectionalLight(0x9ff0e6, 0.55);
-  fill.position.set(-3.4, -1.2, 2.2);
-  scene.add(fill);
+  fillLight = new THREE.DirectionalLight(0x9ff0e6, 0.55);
+  fillLight.position.set(-3.4, -1.2, 2.2);
+  scene.add(fillLight);
 
   group = new THREE.Group();
   scene.add(group);
@@ -336,6 +341,13 @@ cubes = [];
 
   inited = true;
   layout();
+}
+
+// ganti warna cube mengikuti tema aktif: tosca (terang) / neon merah (gelap)
+function applyColorScheme() {
+  if (!inited) return;
+  mat.color.set(resolved.value === 'dark' ? NEON : TOSCA);
+  fillLight.color.set(resolved.value === 'dark' ? 0xff9aa2 : 0x9ff0e6);
 }
 
 const tumbleQuat = new THREE.Quaternion();
@@ -484,9 +496,11 @@ function onScroll() {
 
 onMounted(() => {
   buildScene();
+  applyColorScheme();
   onScroll();
   window.addEventListener('scroll', onScroll, { passive: true });
   window.addEventListener('resize', layout);
+  stopThemeWatch = watch(resolved, applyColorScheme);
   raf = requestAnimationFrame(loop);
 });
 
@@ -494,6 +508,7 @@ onBeforeUnmount(() => {
   cancelAnimationFrame(raf);
   window.removeEventListener('scroll', onScroll);
   window.removeEventListener('resize', layout);
+  stopThemeWatch();
   if (inited) {
     boxGeo.dispose();
     edgeGeo.dispose();
@@ -509,7 +524,7 @@ onBeforeUnmount(() => {
 <template>
   <div
     ref="wrapper"
-    class="top-10 pointer-events-none fixed inset-0 z-0"
+    class="pointer-events-none fixed inset-0 z-0"
     :style="{ opacity: canvasOpacity }"
     aria-hidden="true"
   />

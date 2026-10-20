@@ -23,21 +23,28 @@
     <div id="app"></div>
     <script type="module" src="/src/main.ts"></script>
     <script>
-      const favicon = document.getElementById('favicon');
-    
-      function updateFavicon() {
-        const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches;
-        
-        if (isLightMode) {
-          favicon.href = '/logo-black.png';
-        } else {
-          favicon.href = '/logo-white.png';
+      // Terapkan tema sebelum Vue mount agar tidak ada flash tema salah.
+      // Sumber kebenaran: localStorage 'msroot-theme' (dark | light | system).
+      (function () {
+        var mq = window.matchMedia('(prefers-color-scheme: dark)');
+        var favicon = document.getElementById('favicon');
+
+        function applyTheme() {
+          var saved = null;
+          try { saved = localStorage.getItem('msroot-theme'); } catch (e) {}
+          var choice = (saved === 'dark' || saved === 'light' || saved === 'system') ? saved : 'system';
+          var dark = choice === 'system' ? mq.matches : choice === 'dark';
+
+          document.documentElement.classList.toggle('dark', dark);
+          document.documentElement.style.colorScheme = dark ? 'dark' : 'light';
+          if (favicon) favicon.href = dark ? '/logo-white.png' : '/logo-black.png';
         }
-      }
-      
-      updateFavicon();
-      
-      window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', updateFavicon);
+
+        applyTheme();
+        // Saat mode "system", ikuti perubahan preferensi OS (Vue juga akan
+        // menerapkan ulang saat mount; penerapannya idempotent).
+        mq.addEventListener('change', applyTheme);
+      })();
     </script>
   </body>
 </html>

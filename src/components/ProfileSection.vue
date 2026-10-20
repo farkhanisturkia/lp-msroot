@@ -21,25 +21,26 @@ const socials = [
 </script>
 
 <template>
-  <section id="profile-section" class="relative z-10 scroll-mt-20 overflow-hidden bg-white py-20 md:py-28">
-    <div class="pointer-events-none absolute left-1/2 top-0 h-px w-full max-w-5xl -translate-x-1/2 bg-gradient-to-r from-transparent via-tosca-200 to-transparent"></div>
+  <section id="profile-section" class="relative z-10 scroll-mt-20 overflow-hidden bg-white dark:bg-linear-to-b dark:from-carbon-900 dark:to-carbon-950 py-20 md:py-28">
+    <div class="pointer-events-none absolute left-1/2 top-0 h-px w-full max-w-5xl -translate-x-1/2 bg-gradient-to-r from-transparent via-tosca-200 dark:via-neon-500/40 to-transparent dark:from-transparent dark:to-transparent"></div>
+
 
     <div class="container relative mx-auto px-4">
       <div class="flex flex-col items-center justify-between gap-12 md:flex-row">
         <div class="w-full md:w-1/2">
-          <span class="text-sm font-bold uppercase tracking-widest text-tosca-600">About me</span>
-          <h2 class="mt-2 text-3xl font-extrabold tracking-tight text-slate-900 md:text-5xl">
+          <span class="text-sm font-bold uppercase tracking-widest text-tosca-600 dark:text-neon-400">About me</span>
+          <h2 class="mt-2 text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white md:text-5xl">
             Building Solutions with Passion.
           </h2>
-          <p class="mt-6 text-lg leading-relaxed text-slate-500">
+          <p class="mt-6 text-lg leading-relaxed text-slate-500 dark:text-gray-400">
             Hello! My name is Farkhan. As a software developer, I have a strong interest in web application
             development using modern technologies such as Go, TypeScript/JavaScript, and Laravel.
           </p>
 
           <div class="mt-8 grid grid-cols-2 gap-6">
-            <div v-for="stat in stats" :key="stat.label" class="rounded-2xl border border-tosca-100 bg-tosca-50/60 p-5">
-              <h3 class="text-sm font-bold uppercase tracking-wider text-tosca-600">{{ stat.label }}</h3>
-              <p class="mt-1.5 font-semibold text-slate-800">{{ stat.value }}</p>
+            <div v-for="stat in stats" :key="stat.label" class="rounded-2xl border border-tosca-100 bg-tosca-50/60 dark:border-white/8 dark:bg-carbon-800 p-5">
+              <h3 class="text-sm font-bold uppercase tracking-wider text-tosca-600 dark:text-neon-400">{{ stat.label }}</h3>
+              <p class="mt-1.5 font-semibold text-slate-800 dark:text-gray-100">{{ stat.value }}</p>
             </div>
           </div>
         </div>
@@ -47,13 +48,13 @@ const socials = [
         <div class="relative z-10 flex w-full justify-center md:w-5/12">
           <div class="group relative w-full max-w-sm">
             <div
-              class="absolute -inset-1 rounded-3xl bg-linear-to-r from-tosca-400 to-cyan-400 opacity-25 blur transition duration-700 group-hover:opacity-70"
+              class="absolute -inset-1 rounded-3xl bg-linear-to-r from-tosca-400 to-cyan-400 dark:from-neon-600 dark:to-neon-400 opacity-25 dark:opacity-40 blur transition duration-700 group-hover:opacity-70"
             ></div>
             <div
-              class="relative flex flex-col items-center rounded-3xl border border-tosca-100 bg-white p-8 text-center shadow-2xl shadow-tosca-500/10"
+              class="relative flex flex-col items-center rounded-3xl border border-tosca-100 bg-white dark:border-white/8 dark:bg-carbon-800 p-8 text-center shadow-2xl shadow-tosca-500/10 dark:shadow-neon-sm"
             >
               <div
-                class="relative z-10 mb-6 h-40 w-40 overflow-hidden rounded-full border-4 border-tosca-500 shadow-lg"
+                class="relative z-10 mb-6 h-40 w-40 overflow-hidden rounded-full border-4 border-tosca-500 dark:border-neon-500 shadow-lg dark:shadow-neon"
               >
                 <img
                   :src="farkhanImage"
@@ -61,9 +62,9 @@ const socials = [
                   class="h-full w-full object-cover"
                 />
               </div>
-              <h3 class="mb-2 text-2xl font-bold text-slate-900">Abdurrohman Farkhan Syamaidzar</h3>
-              <p class="mb-4 text-sm font-bold uppercase tracking-wide text-tosca-600">Software Developer</p>
-              <p class="mb-6 px-4 text-sm leading-relaxed text-slate-500">
+              <h3 class="mb-2 text-2xl font-bold text-slate-900 dark:text-white">Abdurrohman Farkhan Syamaidzar</h3>
+              <p class="mb-4 text-sm font-bold uppercase tracking-wide text-tosca-600 dark:text-neon-400">Software Developer</p>
+              <p class="mb-6 px-4 text-sm leading-relaxed text-slate-500 dark:text-gray-400">
                 Writing clean, efficient code to solve real-world problems and improve the effectiveness of digital
                 services.
               </p>
@@ -74,7 +75,7 @@ const socials = [
                   :key="social.name"
                   :href="social.href"
                   target="_blank"
-                  class="relative z-10 rounded-full bg-tosca-50 p-2.5 text-tosca-700 ring-1 ring-tosca-100 transition hover:bg-tosca-500 hover:text-white"
+                  class="relative z-10 rounded-full bg-tosca-50 p-2.5 text-tosca-700 ring-1 ring-tosca-100 transition hover:bg-tosca-500 hover:text-white dark:bg-white/6 dark:text-neon-300 dark:ring-white/10 dark:hover:bg-neon-600 dark:hover:text-white dark:hover:shadow-neon-sm"
                 >
                   <span class="sr-only">{{ social.name }}</span>
                   <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
@@ -84,7 +85,7 @@ const socials = [
                 <a
                   href="https://wa.me/6287720039818?text=Hi%20Farkhan,%20I%20got%20your%20number%20from%20msroot.id"
                   target="_blank"
-                  class="relative z-10 rounded-full bg-tosca-50 p-2.5 text-tosca-700 ring-1 ring-tosca-100 transition hover:bg-tosca-500 hover:text-white"
+                  class="relative z-10 rounded-full bg-tosca-50 p-2.5 text-tosca-700 ring-1 ring-tosca-100 transition hover:bg-tosca-500 hover:text-white dark:bg-white/6 dark:text-neon-300 dark:ring-white/10 dark:hover:bg-neon-600 dark:hover:text-white dark:hover:shadow-neon-sm"
                 >
                   <span class="sr-only">WhatsApp</span>
                   <svg viewBox="0 0 640 640" class="h-5 w-5 fill-current" xmlns="http://www.w3.org/2000/svg">
@@ -109,7 +110,7 @@ const socials = [
                 <a
                   href="https://msroot.my.id"
                   target="_blank"
-                  class="relative z-10 rounded-full bg-tosca-50 p-2.5 text-tosca-700 ring-1 ring-tosca-100 transition hover:bg-tosca-500 hover:text-white"
+                  class="relative z-10 rounded-full bg-tosca-50 p-2.5 text-tosca-700 ring-1 ring-tosca-100 transition hover:bg-tosca-500 hover:text-white dark:bg-white/6 dark:text-neon-300 dark:ring-white/10 dark:hover:bg-neon-600 dark:hover:text-white dark:hover:shadow-neon-sm"
                 >
                   <span class="sr-only">Website</span>
                   <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

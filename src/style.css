@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+/* Mode gelap dikontrol lewat class `.dark` pada <html> (theme switcher),
+   bukan lewat prefers-color-scheme media query. */
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
   --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
 
@@ -14,6 +18,29 @@
   --color-tosca-700: #0f766e;
   --color-tosca-800: #115e59;
   --color-tosca-900: #134e4a;
+
+  /* Palet Neon Merah (pengganti tosca pada mode gelap — glow in the dark) */
+  --color-neon-50: #fff1f2;
+  --color-neon-100: #ffe2e5;
+  --color-neon-200: #ffc9ce;
+  --color-neon-300: #ffa3ab;
+  --color-neon-400: #ff6b78;
+  --color-neon-500: #ff3448;
+  --color-neon-600: #ef1a33;
+  --color-neon-700: #c90f27;
+  --color-neon-800: #a51123;
+  --color-neon-900: #8b1322;
+
+  /* Carbon — charcoal hangat (red-tinted) untuk surface mode gelap.
+     Nuansa merah tipis menyatu dengan aksen neon, tidak sekadar abu-abu dingin. */
+  --color-carbon-950: #0b0a0f; /* dasar halaman */
+  --color-carbon-900: #121018; /* section alternate */
+  --color-carbon-800: #19161f; /* kartu / elevated */
+  --color-carbon-700: #252130; /* hover / border kuat */
+
+  /* Glow neon untuk efek glow-in-the-dark */
+  --shadow-neon: 0 25px 50px -12px rgb(0 0 0 / 0.5), 0 0 30px rgb(255 52 72 / 0.35);
+  --shadow-neon-sm: 0 10px 20px -8px rgb(0 0 0 / 0.35), 0 0 16px rgb(255 52 72 / 0.28);
 }
 
 html {
@@ -31,5 +58,16 @@ body {
 
 ::selection {
   background-color: #14b8a6;
+  color: #ffffff;
+}
+
+/* Mode gelap: abu-abu gelap sebagai dasar, neon merah sebagai aksen */
+html.dark body {
+  background-color: #0b0a0f;
+  color: #e5e7eb;
+}
+
+html.dark ::selection {
+  background-color: #ff3448;
   color: #ffffff;
 }
