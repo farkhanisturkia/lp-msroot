@@ -20,13 +20,14 @@ const scrollTo = async (id: string) => {
 
 const links = [
   { label: 'Home', target: 'hero-section' },
-  { label: 'About', target: 'profile-section' },
+  { label: 'Our Professional', target: 'our-professional-section' },
   { label: 'Product & Skill', target: 'product-section' },
+  { label: 'Find Us', target: 'find-us-section' },
 ];
 </script>
 
 <template>
-  <header class="fixed inset-x-0 top-0 z-50 border-b border-tosca-100 dark:border-neon-500/20 bg-white/85 dark:bg-carbon-950/85 backdrop-blur-md dark:shadow-[0_16px_40px_-24px_rgb(255_52_72_/_0.8)]">
+  <header class="fixed inset-x-0 top-0 z-50 border-b border-tosca-100 dark:border-neon-500/20 bg-white/85 dark:bg-carbon-950/85 backdrop-blur-md dark:shadow-[0_16px_40px_-24px_rgb(255_52_72/0.8)]">
     <div class="container mx-auto flex h-16 items-center justify-between px-4">
       <a href="#" class="flex items-center gap-2.5" @click.prevent="scrollTo('hero-section')">
         <img src="/logo-black.png" alt="MsRoot logo" class="dark:hidden h-8 w-8 object-contain" />
@@ -39,7 +40,7 @@ const links = [
       <nav class="hidden md:flex items-center gap-8">
         <a
           v-for="link in links"
-          :key="link.target"
+          :key="link.label"
           class="cursor-pointer text-sm font-semibold text-slate-600 dark:text-white transition-colors hover:text-tosca-600 dark:hover:text-neon-400"
           @click="scrollTo(link.target)"
         >
@@ -48,9 +49,9 @@ const links = [
         <div class="flex items-center gap-3">
           <a
             class="cursor-pointer rounded-full bg-tosca-500 dark:bg-neon-600 px-5 py-2 text-sm font-semibold text-white shadow-sm shadow-tosca-500/30 dark:shadow-neon-sm transition hover:bg-tosca-600 dark:hover:bg-neon-500"
-            @click="scrollTo('profile-section')"
+            @click="scrollTo('find-us-section')"
           >
-            Contact us
+            Find us
           </a>
           <ThemeToggle />
         </div>
@@ -71,7 +72,7 @@ const links = [
     <div v-if="open" class="md:hidden border-t border-tosca-100 dark:border-neon-500/20 bg-white dark:bg-carbon-950/95 px-4 py-3">
       <a
         v-for="link in links"
-        :key="link.target"
+        :key="link.label"
         class="block cursor-pointer rounded-lg px-3 py-2.5 text-sm font-semibold text-slate-700 dark:text-white transition hover:bg-tosca-50 hover:text-tosca-700 dark:hover:bg-white/8 dark:hover:text-neon-300"
         @click="scrollTo(link.target)"
       >
@@ -79,9 +80,9 @@ const links = [
       </a>
       <a
         class="mt-1 block cursor-pointer rounded-lg bg-tosca-500 dark:bg-neon-600 px-3 py-2.5 text-center text-sm font-semibold text-white shadow-sm shadow-tosca-500/30 dark:shadow-neon-sm transition hover:bg-tosca-600 dark:hover:bg-neon-500"
-        @click="scrollTo('profile-section')"
+        @click="scrollTo('find-us-section')"
       >
-        Contact us
+        Find us
       </a>
       <div class="mt-3 px-3">
         <!-- <span class="mb-1.5 block text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-white/50">

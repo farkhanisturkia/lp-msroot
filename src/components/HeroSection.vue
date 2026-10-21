@@ -8,10 +8,10 @@ const scrollToProducts = () => {
   }
 };
 
-const scrollToProfile = () => {
-  const profileSection = document.getElementById('profile-section');
-  if (profileSection) {
-    profileSection.scrollIntoView({ behavior: 'smooth' });
+const scrollToFindUs = () => {
+  const findUsSection = document.getElementById('find-us-section');
+  if (findUsSection) {
+    findUsSection.scrollIntoView({ behavior: 'smooth' });
   }
 };
 
@@ -40,7 +40,7 @@ const features = [
     <!-- garis lurus + kotak di pojokan: tosca di light, neon merah glow di dark -->
     <CornerLines
       :seed="7"
-      class="text-tosca-500/25 dark:text-neon-500/30 dark:drop-shadow-[0_0_6px_rgb(255_52_72_/_0.35)]"
+      class="text-tosca-500/25 dark:text-neon-500/30 dark:drop-shadow-[0_0_6px_rgb(255_52_72/0.35)]"
     />
 
     <div class="container relative mx-auto px-4">
@@ -49,7 +49,7 @@ const features = [
           <span
             class="inline-flex items-center gap-2 rounded-full border border-tosca-200 bg-tosca-50 dark:border-neon-500/40 dark:bg-neon-500/10 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-tosca-700 dark:text-neon-300"
           >
-            <span class="h-1.5 w-1.5 rounded-full bg-tosca-500 dark:bg-neon-400 dark:shadow-[0_0_8px_rgb(255_52_72_/_0.8)]"></span>
+            <span class="h-1.5 w-1.5 rounded-full bg-tosca-500 dark:bg-neon-400 dark:shadow-[0_0_8px_rgb(255_52_72/0.8)]"></span>
             MsRoot.ID
           </span>
 
@@ -67,10 +67,10 @@ const features = [
 
           <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:gap-4">
             <button
-              @click="scrollToProfile"
+              @click="scrollToFindUs"
               class="rounded-full bg-tosca-500 dark:bg-neon-600 px-8 py-3.5 text-center font-semibold text-white shadow-lg shadow-tosca-500/25 dark:shadow-neon transition duration-300 hover:bg-tosca-600 dark:hover:bg-neon-500"
             >
-              Contact us
+              Find us
             </button>
             <button
               @click="scrollToProducts"

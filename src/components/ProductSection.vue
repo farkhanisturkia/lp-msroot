@@ -1,24 +1,4 @@
 <script setup lang="ts">
-const scrollToProducts = () => {
-  const productSection = document.getElementById('product-section');
-  if (productSection) {
-    productSection.scrollIntoView({ behavior: 'smooth' });
-  }
-};
-
-const scrollToProfile = () => {
-  const profileSection = document.getElementById('profile-section');
-  if (profileSection) {
-    profileSection.scrollIntoView({ behavior: 'smooth' });
-  }
-};
-
-const scrollToHero = () => {
-  const heroSection = document.getElementById('hero-section');
-  if (heroSection) {
-    heroSection.scrollIntoView({ behavior: 'smooth' });
-  }
-};
 </script>
 
 <template>
@@ -90,29 +70,6 @@ const scrollToHero = () => {
           </router-link>
         </div>
       </div>
-
-      <hr class="border-tosca-100 dark:border-white/8 my-8">
-      
-      <div class="flex flex-col md:flex-row justify-between items-center gap-8 pt-4">
-        <div class="flex items-center space-x-3">
-          <img src="/logo-black.png" alt="MsRoot Logo" class="w-8 h-8 object-contain dark:hidden" />
-          <img src="/logo-white.png" alt="MsRoot Logo" class="hidden dark:block w-8 h-8 object-contain" />
-          <span class="text-xl font-bold tracking-wider text-slate-900 dark:text-white">MsRoot<span class="text-tosca-600 dark:text-neon-400">.ID</span></span>
-        </div>
-        
-        <div class="flex flex-wrap justify-center gap-6 text-sm text-slate-500 dark:text-gray-400">
-          <a v-on:click="scrollToHero" class="cursor-pointer hover:text-tosca-600 dark:hover:text-neon-400 transition-colors">Home</a>
-          <a v-on:click="scrollToProfile" class="cursor-pointer hover:text-tosca-600 dark:hover:text-neon-400 transition-colors">Contact us</a>
-          <a v-on:click="scrollToProducts" class="cursor-pointer hover:text-tosca-600 dark:hover:text-neon-400 transition-colors">Product & Skill</a>
-        </div>
-
-        <div class="hidden md:flex items-center justify-end w-1/9" />
-      </div>
-
-      <div class="text-center text-slate-400 dark:text-gray-500 text-sm mt-12">
-        <p>&copy; 2026 MsRoot.ID. All rights reserved. Built with passion and robust software architecture.</p>
-      </div>
-
     </div>
   </section>
 </template>
