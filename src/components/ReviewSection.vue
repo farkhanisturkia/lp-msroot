@@ -1,8 +1,41 @@
 <script setup lang="ts">
 import { reviewsTop, reviewsBottom } from '../data/reviews';
+import { useDragMarquee } from '../composables/useDragMarquee';
 
 const rowTopDuration = 50;
 const rowBottomDuration = 55;
+
+// Dua baris carousel independen: masing-masing bisa diseret dengan mouse / jari
+// dan otomatis jalan kembali setelah seretan selesai (tidak ada jeda permanen).
+// Destructure ke binding top-level: ref bersarang di dalam objek tidak di-unwrap
+// template Vue, sehingga `top.isDragging` akan selalu truthy.
+const {
+  trackRef: topTrack,
+  isDragging: topDragging,
+  onPointerDown: topPointerDown,
+  onPointerMove: topPointerMove,
+  onPointerUp: topPointerUp,
+  onPointerCancel: topPointerCancel,
+  onClickCapture: topClickCapture,
+  onMouseEnter: topMouseEnter,
+  onMouseLeave: topMouseLeave,
+} = useDragMarquee({ duration: rowTopDuration, direction: 'rtl' });
+
+const {
+  trackRef: bottomTrack,
+  isDragging: bottomDragging,
+  onPointerDown: bottomPointerDown,
+  onPointerMove: bottomPointerMove,
+  onPointerUp: bottomPointerUp,
+  onPointerCancel: bottomPointerCancel,
+  onClickCapture: bottomClickCapture,
+  onMouseEnter: bottomMouseEnter,
+  onMouseLeave: bottomMouseLeave,
+} = useDragMarquee({ duration: rowBottomDuration, direction: 'ltr' });
+
+// `topTrack`/`bottomTrack` diikat lewat ref string pada template.
+void topTrack;
+void bottomTrack;
 </script>
 
 <template>
@@ -28,8 +61,18 @@ const rowBottomDuration = 55;
       <div class="pointer-events-none absolute inset-y-0 right-0 z-10 w-12 bg-linear-to-l from-white to-transparent dark:from-carbon-950 md:w-28"></div>
 
       <!-- Baris atas: kanan ke kiri -->
-      <div class="review-marquee">
-        <div class="review-track review-track--rtl" :style="{ animationDuration: `${rowTopDuration}s` }">
+      <div
+        class="review-marquee cursor-grab active:cursor-grabbing"
+        :class="{ 'select-none': topDragging }"
+        @pointerdown="topPointerDown"
+        @pointermove="topPointerMove"
+        @pointerup="topPointerUp"
+        @pointercancel="topPointerCancel"
+        @click.capture="topClickCapture"
+        @mouseenter="topMouseEnter"
+        @mouseleave="topMouseLeave"
+      >
+        <div ref="topTrack" class="review-track flex h-fit w-max items-start">
           <template v-for="copy in 2" :key="`top-${copy}`">
             <div
               v-for="(review, index) in reviewsTop"
@@ -52,8 +95,18 @@ const rowBottomDuration = 55;
       </div>
 
       <!-- Baris bawah: kiri ke kanan -->
-      <div class="review-marquee">
-        <div class="review-track review-track--ltr" :style="{ animationDuration: `${rowBottomDuration}s` }">
+      <div
+        class="review-marquee cursor-grab active:cursor-grabbing"
+        :class="{ 'select-none': bottomDragging }"
+        @pointerdown="bottomPointerDown"
+        @pointermove="bottomPointerMove"
+        @pointerup="bottomPointerUp"
+        @pointercancel="bottomPointerCancel"
+        @click.capture="bottomClickCapture"
+        @mouseenter="bottomMouseEnter"
+        @mouseleave="bottomMouseLeave"
+      >
+        <div ref="bottomTrack" class="review-track flex h-fit w-max items-start">
           <template v-for="copy in 2" :key="`bottom-${copy}`">
             <div
               v-for="(review, index) in reviewsBottom"
@@ -79,48 +132,14 @@ const rowBottomDuration = 55;
 </template>
 
 <style scoped>
-.review-track {
-  display: flex;
-  width: max-content;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-}
-
-/* Baris atas: kanan -> kiri */
-.review-track--rtl {
-  animation-name: review-rtl;
-}
-
-/* Baris bawah: kiri -> kanan */
-.review-track--ltr {
-  animation-name: review-ltr;
-}
-
-.review-marquee:hover .review-track {
-  animation-play-state: paused;
-}
-
-@keyframes review-rtl {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
-}
-
-@keyframes review-ltr {
-  from {
-    transform: translateX(-50%);
-  }
-  to {
-    transform: translateX(0);
-  }
+/* Pan Horizontal: geser dengan jari diizinkan, scroll vertikal tetap milik browser */
+.review-marquee {
+  touch-action: pan-y;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .review-track {
-    animation: none;
+  .review-marquee {
+    cursor: default;
   }
 }
 </style>

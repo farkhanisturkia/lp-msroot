@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed, onBeforeUnmount, onMounted, ref } from 'vue';
 import { professionals } from '../data/professionals';
+import { useDragMarquee } from '../composables/useDragMarquee';
 import ProfessionalCard from './ProfessionalCard.vue';
 
 /**
@@ -8,6 +9,8 @@ import ProfessionalCard from './ProfessionalCard.vue';
  * - Mobile : looping jika anggota > 1
  * - Desktop: looping jika anggota > 4
  * Selain itu kartu ditampilkan diam di tengah.
+ * Carousel yang berjalan bisa diseret dengan mouse / jari dan
+ * otomatis jalan kembali setelah seretan selesai.
  */
 const isMobile = ref(false);
 let mediaQuery: MediaQueryList | null = null;
@@ -31,6 +34,27 @@ const isMarquee = computed(() =>
 );
 
 const marqueeDuration = computed(() => Math.max(professionals.length * 12, 30));
+
+// Destructure ke binding top-level: ref bersarang di dalam objek tidak di-unwrap
+// template Vue, sehingga `marquee.isDragging` akan selalu truthy.
+const {
+  trackRef,
+  isDragging,
+  onPointerDown,
+  onPointerMove,
+  onPointerUp,
+  onPointerCancel,
+  onClickCapture,
+  onMouseEnter,
+  onMouseLeave,
+} = useDragMarquee({
+  duration: () => marqueeDuration.value,
+  direction: 'rtl',
+  enabled: () => isMarquee.value,
+});
+
+// `trackRef` diikat lewat ref="trackRef" pada template (template-ref string).
+void trackRef;
 </script>
 
 <template>
@@ -53,14 +77,22 @@ const marqueeDuration = computed(() => Math.max(professionals.length * 12, 30));
     </div>
 
     <!-- Carousel berjalan (aktif otomatis saat jumlah anggota melebihi batas) -->
-    <div v-if="isMarquee" class="op-marquee relative mt-12 w-full md:mt-16">
+    <div
+      v-if="isMarquee"
+      class="op-marquee relative mt-12 w-full cursor-grab active:cursor-grabbing md:mt-16"
+      :class="{ 'select-none': isDragging }"
+      @pointerdown="onPointerDown"
+      @pointermove="onPointerMove"
+      @pointerup="onPointerUp"
+      @pointercancel="onPointerCancel"
+      @click.capture="onClickCapture"
+      @mouseenter="onMouseEnter"
+      @mouseleave="onMouseLeave"
+    >
       <div class="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-linear-to-r from-white to-transparent dark:from-carbon-950 md:w-32"></div>
       <div class="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-linear-to-l from-white to-transparent dark:from-carbon-950 md:w-32"></div>
 
-      <div
-        class="op-track flex w-max items-stretch"
-        :style="{ animationDuration: `${marqueeDuration}s` }"
-      >
+      <div ref="trackRef" class="op-track flex w-max items-stretch">
         <template v-for="copy in 2" :key="copy">
           <div
             v-for="(person, index) in professionals"
@@ -84,28 +116,14 @@ const marqueeDuration = computed(() => Math.max(professionals.length * 12, 30));
 </template>
 
 <style scoped>
-.op-track {
-  animation-name: op-scroll;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-}
-
-.op-marquee:hover .op-track {
-  animation-play-state: paused;
-}
-
-@keyframes op-scroll {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
+/* Pan Horizontal: geser dengan jari diizinkan, scroll vertikal tetap milik browser */
+.op-marquee {
+  touch-action: pan-y;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .op-track {
-    animation: none;
+  .op-marquee {
+    cursor: default;
   }
 }
 </style>
