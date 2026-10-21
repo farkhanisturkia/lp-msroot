@@ -80,11 +80,11 @@ void bottomTrack;
               class="w-[78vw] shrink-0 px-2 sm:w-80 md:w-96 md:px-3"
               :aria-hidden="copy === 2 ? 'true' : undefined"
             >
-              <figure class="flex aspect-3/1 flex-col justify-between overflow-hidden rounded-2xl border border-tosca-100 bg-tosca-50/60 p-4 shadow-sm dark:border-white/8 dark:bg-carbon-800">
-                <blockquote class="line-clamp-3 text-sm leading-snug text-slate-600 dark:text-gray-400">
+              <figure class="flex min-h-32 flex-col justify-between overflow-hidden rounded-2xl border border-tosca-100 bg-tosca-50/60 p-4 shadow-sm dark:border-white/8 dark:bg-carbon-800">
+                <blockquote class="line-clamp-3 shrink-0 text-sm leading-snug text-slate-600 dark:text-gray-400">
                   "{{ review.comment }}"
                 </blockquote>
-                <figcaption class="mt-2 flex items-baseline gap-2 truncate">
+                <figcaption class="mt-2 flex shrink-0 items-baseline gap-2 truncate">
                   <span class="truncate text-sm font-bold text-slate-900 dark:text-white">{{ review.name }}</span>
                   <span class="truncate text-xs font-medium text-tosca-600 dark:text-neon-400">{{ review.title }}</span>
                 </figcaption>
@@ -114,11 +114,11 @@ void bottomTrack;
               class="w-[78vw] shrink-0 px-2 sm:w-80 md:w-96 md:px-3"
               :aria-hidden="copy === 2 ? 'true' : undefined"
             >
-              <figure class="flex aspect-3/1 flex-col justify-between overflow-hidden rounded-2xl border border-tosca-100 bg-white p-4 shadow-sm dark:border-white/8 dark:bg-carbon-800">
-                <blockquote class="line-clamp-3 text-sm leading-snug text-slate-600 dark:text-gray-400">
+              <figure class="flex min-h-32 flex-col justify-between overflow-hidden rounded-2xl border border-tosca-100 bg-white p-4 shadow-sm dark:border-white/8 dark:bg-carbon-800">
+                <blockquote class="line-clamp-3 shrink-0 text-sm leading-snug text-slate-600 dark:text-gray-400">
                   "{{ review.comment }}"
                 </blockquote>
-                <figcaption class="mt-2 flex items-baseline gap-2 truncate">
+                <figcaption class="mt-2 flex shrink-0 items-baseline gap-2 truncate">
                   <span class="truncate text-sm font-bold text-slate-900 dark:text-white">{{ review.name }}</span>
                   <span class="truncate text-xs font-medium text-tosca-600 dark:text-neon-400">{{ review.title }}</span>
                 </figcaption>
