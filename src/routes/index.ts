@@ -21,6 +21,11 @@ const routes: RouteRecordRaw[] = [
         name: 'phpLaravel',
         component: () => import('../views/PhpLaravelView.vue')
     },
+    {
+        path: '/:pathMatch(.*)*',
+        name: 'notFound',
+        component: () => import('../views/NotFoundView.vue')
+    },
 ]
 
 const router = createRouter({
