@@ -4,7 +4,7 @@ import OurProfessionalSection from '../components/OurProfessionalSection.vue';
 import ProductSection from '../components/ProductSection.vue';
 import FindUsSection from '../components/FindUsSection.vue';
 import ReviewSection from '../components/ReviewSection.vue';
-import Footer from '../components/Footer.vue';
+import FooterSection from '../components/FooterSection.vue';
 import CubeScene from '../components/CubeScene.vue';
 </script>
 
@@ -15,5 +15,5 @@ import CubeScene from '../components/CubeScene.vue';
   <ReviewSection />
   <ProductSection />
   <FindUsSection />
-  <Footer />
+  <FooterSection />
 </template>
